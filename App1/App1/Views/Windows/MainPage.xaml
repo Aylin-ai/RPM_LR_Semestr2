@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App1.ViewModels" x:DataType="vm:MainPageViewModel"
+             x:Class="App1.Views.Windows.MainPage"
+             Title="Страница регистрации">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout x:Name="stack" Spacing="4">
+        <Frame x:Name="frame" BackgroundColor="White" Padding="15">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Margin="0" x:Name="themeLabel" Text="Светлая тема"/>
+                <Switch x:Name="toggle" IsToggled="False" 
+                        OnColor="Black"/>
+            </StackLayout>
+        </Frame>
+
+        <Label x:Name="loginLabel" Text="Логин*"/>
+        <Entry x:Name="login" Placeholder="Введите логин..."/>
+
+        <Label x:Name="passwordLabel" Text="Пароль*"/>
+        <Entry x:Name="pass1" Placeholder="Введите пароль..." IsPassword="True"/>
+        <Entry x:Name="pass2" IsPassword="True" 
+               Placeholder="Введите пароль ещё раз..."/>
+
+        <Label x:Name="dataLabel" Text="Дата рождения*"/>
+        <DatePicker x:Name="data" MaximumDate="01/01/2010" MinimumDate="01/01/1970"
+                    HorizontalOptions="Start" Margin="10, 0, 10, 10"/>
+
+        <Label x:Name="numberLabel" Text="Номер телефона"/>
+        <Entry x:Name="number" Keyboard="Telephone" 
+               Placeholder="+7..."/>
+
+        <Label x:Name="emailLabel" Text="Email"/>
+        <Entry x:Name="email" Keyboard="Email" 
+               Placeholder="Введите адрес своей почты..."/>
+
+        <Label x:Name="roleLabel" Text="Роль*"/>
+        <Frame Margin="10, 0, 10, 10" x:Name="frame2" Padding="0">
+            <Picker x:Name="role" FontSize="14" ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding Index, Mode=TwoWay}"/>
+        </Frame>
+
+        <Button x:Name="butt" Text="Регистрация" HorizontalOptions="Center"
+                Command="{Binding NextPageCommand}"/>
+
+        <Label x:Name="label"/>
+    </StackLayout>
+
+    
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App1.ViewModels" x:DataType="vm:UserPageViewModel"
+             x:Class="App1.Views.Windows.UserPage"
+             Title="Личный кабинет пользователя">
+    <ContentPage.BindingContext>
+        <vm:UserPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="label"/>
+            <Button Text="Перечень книг" Command="{Binding BookListCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

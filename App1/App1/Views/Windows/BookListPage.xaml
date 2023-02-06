@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App1.ViewModels" x:DataType="vm:BookListPageViewModel"
+             x:Class="App1.Views.Windows.BookListPage"
+             Title="Перечень книг">
+    <ContentPage.BindingContext>
+        <vm:BookListPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="label"/>
+
+            <Grid Margin="20" BackgroundColor="Wheat">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label Text="Название книги"/>
+                    <Label Text="Описание"/>
+                    <Button Text="Подробнее" Command="{Binding BookInformationCommand}"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="20" BackgroundColor="Wheat">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label Text="Название книги"/>
+                    <Label Text="Описание"/>
+                    <Button Text="Читать"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="20" BackgroundColor="Wheat">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label Text="Название книги"/>
+                    <Label Text="Описание"/>
+                    <Button Text="Читать"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="20" BackgroundColor="Wheat">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label Text="Название книги"/>
+                    <Label Text="Описание"/>
+                    <Button Text="Читать"/>
+                </StackLayout>
+            </Grid>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
