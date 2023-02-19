@@ -8,8 +8,8 @@
         <vm:MainPageViewModel/>
     </ContentPage.BindingContext>
     
-    <StackLayout x:Name="stack" Spacing="4">
-        <Frame x:Name="frame" BackgroundColor="White" Padding="15">
+    <StackLayout x:Name="stack" Spacing="0">
+        <Frame x:Name="frame" BackgroundColor="White" Padding="5">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Margin="0" x:Name="themeLabel" Text="Светлая тема"/>
                 <Switch x:Name="toggle" IsToggled="False" 
@@ -40,7 +40,7 @@
         <Label x:Name="roleLabel" Text="Роль*"/>
         <Frame Margin="10, 0, 10, 10" x:Name="frame2" Padding="0">
             <Picker x:Name="role" FontSize="14" ItemsSource="{Binding Roles}"
-                    SelectedIndex="{Binding Index, Mode=TwoWay}"/>
+                    SelectedIndex="{Binding Index}"/>
         </Frame>
 
         <Button x:Name="butt" Text="Регистрация" HorizontalOptions="Center"

@@ -9,6 +9,8 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Читать онлайн" Margin="10" Command="{Binding ReadBookCommand}"/>
+            <Button Text="Скачать" Margin="10"/>
             <Label x:Name="label"/>
         </StackLayout>
     </ContentPage.Content>

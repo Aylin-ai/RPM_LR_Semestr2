@@ -9,8 +9,13 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Перечень книг" Command="{Binding BookListCommand}" Margin="10"/>
+            <Button Text="Сделать фото" Margin="10" Command="{Binding TakePhotoCommand}"/>
+            <Button Text="Выбрать фото" Margin="10" Command="{Binding GetPhotoCommand}"/>
+
+            <Image Source="{Binding PhotoPath}" Margin="10"/>
+
             <Label x:Name="label"/>
-            <Button Text="Перечень книг" Command="{Binding BookListCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

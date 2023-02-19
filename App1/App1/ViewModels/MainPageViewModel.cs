@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using App1.Views.Windows;
+using App1.Views.Windows.Администратор;
+using App1.Views.Windows.Библиотекарь;
 
 namespace App1.ViewModels
 {
@@ -129,11 +131,11 @@ namespace App1.ViewModels
                 }
                 else if (Index == 1)
                 {
-                    nextPageCommand = new Command(OnBookInformationPageExecute);
+                    nextPageCommand = new Command(OnAdminPageExecuted);
                 }
                 else if (Index == 2)
                 {
-                    nextPageCommand = new Command(OnBookInformationPageExecute);
+                    nextPageCommand = new Command(OnLibrarianPageExecuted);
                 }
                 return nextPageCommand;
             }
@@ -146,11 +148,18 @@ namespace App1.ViewModels
             userPage.DisplayStack();
         }
 
-        private void OnBookInformationPageExecute()
+        private void OnAdminPageExecuted()
         {
-            BookInformationPage bookInformationPage = new BookInformationPage();
-            Application.Current.MainPage.Navigation.PushAsync(bookInformationPage);
-            bookInformationPage.DisplayStack();
+            AdminPage adminPage = new AdminPage();
+            Application.Current.MainPage.Navigation.PushAsync(adminPage);
+            adminPage.DisplayStack();
+        }
+
+        private void OnLibrarianPageExecuted()
+        {
+            LibrarianPage librarianPage = new LibrarianPage();
+            Application.Current.MainPage.Navigation.PushAsync(librarianPage);
+            librarianPage.DisplayStack();
         }
 
         private bool CanUserPageComandExecute()

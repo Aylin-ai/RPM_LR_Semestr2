@@ -13,7 +13,31 @@ namespace App1.ViewModels
         #region Команды
 
 
+        #region Команда для перехода на страницу чтения книги
 
+        private Command readBookCommand;
+
+        public ICommand ReadBookCommand
+        {
+            get
+            {
+                if (readBookCommand == null)
+                {
+                    readBookCommand = new Command(OnReadBookCommandExecuted);
+                }
+
+                return readBookCommand;
+            }
+        }
+
+        private void OnReadBookCommandExecuted(object obj)
+        {
+            BookReadPage bookReadPage = new BookReadPage();
+            Application.Current.MainPage.Navigation.PushAsync(bookReadPage);
+            bookReadPage.DisplayStack();
+        }
+
+        #endregion
 
 
         #endregion
