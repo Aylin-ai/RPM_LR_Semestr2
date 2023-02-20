@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:App1.ViewModels" x:DataType="vm:BookInformationPAgeViewModel"
              x:Class="App1.ViewModels.BookInformationPage"
-             Title="Информация о книге">
+             Title="Информация о книге 'Как размножаются угри'">
     <ContentPage.BindingContext>
         <vm:BookInformationPAgeViewModel/>
     </ContentPage.BindingContext>

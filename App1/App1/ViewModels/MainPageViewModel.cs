@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using App1.Views.Windows;
 using App1.Views.Windows.Администратор;
 using App1.Views.Windows.Библиотекарь;
+using App1.Models;
 
 namespace App1.ViewModels
 {
@@ -20,7 +21,6 @@ namespace App1.ViewModels
         private DateTime _DateOfBirth;
         private string _TelephonNumber;
         private string _Email;
-        private string _Role;
 
         public string Login
         {
@@ -51,11 +51,6 @@ namespace App1.ViewModels
         {
             get => _Email;
             set => Set(ref _Email, value);
-        }
-        public string Role
-        {
-            get => _Role;
-            set => Set(ref _Role, value);
         }
 
         #endregion
@@ -143,28 +138,82 @@ namespace App1.ViewModels
 
         private void OnUserPageComandExecuted()
         {
-            UserPage userPage = new UserPage();
-            Application.Current.MainPage.Navigation.PushAsync(userPage);
-            userPage.DisplayStack();
+            if (Password1 == Password2)
+            {
+                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
+                (
+                    login:Login,
+                    password:Password1,
+                    dateOfBirth:DateOfBirth.ToString(),
+                    telephonenumber:TelephoneNumber,
+                    email:Email,
+                    role:Roles[Index]
+                );
+
+                UserPage userPage = new UserPage();
+                Application.Current.MainPage.Navigation.PushAsync(userPage);
+                userPage.DisplayStack();
+
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                Password1 = "";
+                Password2 = "";
+            }
         }
 
         private void OnAdminPageExecuted()
         {
-            AdminPage adminPage = new AdminPage();
-            Application.Current.MainPage.Navigation.PushAsync(adminPage);
-            adminPage.DisplayStack();
+            if (Password1 == Password2)
+            {
+                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
+                (
+                    login: Login,
+                    password: Password1,
+                    dateOfBirth: DateOfBirth.ToString(),
+                    telephonenumber: TelephoneNumber,
+                    email: Email,
+                    role: Roles[Index]
+                );
+
+                AdminPage adminPage = new AdminPage();
+                Application.Current.MainPage.Navigation.PushAsync(adminPage);
+                adminPage.DisplayStack();
+
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                Password1 = "";
+                Password2 = "";
+            }
         }
 
         private void OnLibrarianPageExecuted()
         {
-            LibrarianPage librarianPage = new LibrarianPage();
-            Application.Current.MainPage.Navigation.PushAsync(librarianPage);
-            librarianPage.DisplayStack();
-        }
+            if (Password1 == Password2)
+            {
+                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
+                (
+                    login: Login,
+                    password: Password1,
+                    dateOfBirth: DateOfBirth.ToString(),
+                    telephonenumber: TelephoneNumber,
+                    email: Email,
+                    role: Roles[Index]
+                );
 
-        private bool CanUserPageComandExecute()
-        {
-            return true;
+                LibrarianPage librarianPage = new LibrarianPage();
+                Application.Current.MainPage.Navigation.PushAsync(librarianPage);
+                librarianPage.DisplayStack();
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                Password1 = "";
+                Password2 = "";
+            }
         }
 
         #endregion
