@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,12 @@ namespace App1.Views.Windows.Администратор
             {
                 DisplayStack();
                 loaded = true;
+            }
+
+            for (int i = 0; i < Application.Current.Properties.Count; i++)
+            {
+                User user = (User)Application.Current.Properties["user №" + i];
+                stack.Children.Add(new Button() { Text = user.Login, Margin = 10 });
             }
         }
         protected internal void DisplayStack()

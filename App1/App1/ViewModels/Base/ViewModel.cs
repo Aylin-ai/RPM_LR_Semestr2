@@ -8,6 +8,13 @@ namespace App1.ViewModels.Base
 {
     internal abstract class ViewModel : INotifyPropertyChanged
     {
+        bool isBusy = false;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { Set(ref isBusy, value); }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string PropertyName = null)

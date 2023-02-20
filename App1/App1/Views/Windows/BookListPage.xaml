@@ -11,59 +11,21 @@
         <StackLayout>
             <Label x:Name="label"/>
 
-            <Grid Margin="20" BackgroundColor="Wheat">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
-                <StackLayout Grid.Column="1" Orientation="Vertical">
-                    <Label Text="Название книги"/>
-                    <Label Text="Описание"/>
-                    <Button Text="Подробнее" Command="{Binding BookInformationCommand}"/>
-                </StackLayout>
-            </Grid>
+            <Frame  Margin="20" BackgroundColor="AliceBlue" BorderColor="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="Assets/index.jpg" VerticalOptions="Fill" HorizontalOptions="Fill" />
+                    <StackLayout Grid.Column="1" Orientation="Vertical">
+                        <Label Text="Как размножаются угри"/>
+                        <Label Text="Книга о том, как размножаются угри" FontSize="12" VerticalOptions="StartAndExpand"/>
+                        <Button Text="Подробнее" Command="{Binding BookInformationCommand}" VerticalOptions="End"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
 
-            <Grid Margin="20" BackgroundColor="Wheat">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
-                <StackLayout Grid.Column="1" Orientation="Vertical">
-                    <Label Text="Название книги"/>
-                    <Label Text="Описание"/>
-                    <Button Text="Читать"/>
-                </StackLayout>
-            </Grid>
-
-            <Grid Margin="20" BackgroundColor="Wheat">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
-                <StackLayout Grid.Column="1" Orientation="Vertical">
-                    <Label Text="Название книги"/>
-                    <Label Text="Описание"/>
-                    <Button Text="Читать"/>
-                </StackLayout>
-            </Grid>
-
-            <Grid Margin="20" BackgroundColor="Wheat">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="White" CornerRadius="10" Grid.Column="0"/>
-                <StackLayout Grid.Column="1" Orientation="Vertical">
-                    <Label Text="Название книги"/>
-                    <Label Text="Описание"/>
-                    <Button Text="Читать"/>
-                </StackLayout>
-            </Grid>
-            
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -18,29 +18,33 @@
         </Frame>
 
         <Label x:Name="loginLabel" Text="Логин*"/>
-        <Entry x:Name="login" Placeholder="Введите логин..."/>
+        <Entry x:Name="login" Placeholder="Введите логин..." Text="{Binding Login, Mode=TwoWay}"/>
 
         <Label x:Name="passwordLabel" Text="Пароль*"/>
-        <Entry x:Name="pass1" Placeholder="Введите пароль..." IsPassword="True"/>
+        <Entry x:Name="pass1" Placeholder="Введите пароль..." IsPassword="True" Text="{Binding Password1, Mode=TwoWay}"/>
         <Entry x:Name="pass2" IsPassword="True" 
-               Placeholder="Введите пароль ещё раз..."/>
+               Placeholder="Введите пароль ещё раз..."
+               Text="{Binding Password2, Mode=TwoWay}"/>
 
         <Label x:Name="dataLabel" Text="Дата рождения*"/>
         <DatePicker x:Name="data" MaximumDate="01/01/2010" MinimumDate="01/01/1970"
-                    HorizontalOptions="Start" Margin="10, 0, 10, 10"/>
+                    HorizontalOptions="Start" Margin="10, 0, 10, 10"
+                    Date="{Binding DateOfBirth, Mode=TwoWay}"/>
 
         <Label x:Name="numberLabel" Text="Номер телефона"/>
         <Entry x:Name="number" Keyboard="Telephone" 
-               Placeholder="+7..."/>
+               Placeholder="+7..."
+               Text="{Binding TelephoneNumber, Mode=TwoWay}"/>
 
         <Label x:Name="emailLabel" Text="Email"/>
         <Entry x:Name="email" Keyboard="Email" 
-               Placeholder="Введите адрес своей почты..."/>
+               Placeholder="Введите адрес своей почты..."
+               Text="{Binding Email, Mode=TwoWay}"/>
 
         <Label x:Name="roleLabel" Text="Роль*"/>
         <Frame Margin="10, 0, 10, 10" x:Name="frame2" Padding="0">
             <Picker x:Name="role" FontSize="14" ItemsSource="{Binding Roles}"
-                    SelectedIndex="{Binding Index}"/>
+                    SelectedIndex="{Binding Index, Mode=TwoWay}"/>
         </Frame>
 
         <Button x:Name="butt" Text="Регистрация" HorizontalOptions="Center"

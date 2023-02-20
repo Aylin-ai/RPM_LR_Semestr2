@@ -7,11 +7,26 @@ using Xamarin.Forms;
 using App1.Views.Windows;
 using Xamarin.Essentials;
 using System.IO;
+using App1.Models;
 
 namespace App1.ViewModels
 {
     internal class UserPageViewModel : ViewModel
     {
+
+        #region Название страницы
+
+        private static User _Dict = (User)Application.Current.Properties["user №" + (Application.Current.Properties.Count - 1)];
+
+        private string _Title = "Личный кабинет пользователя " + _Dict.Login;
+
+        public string Title
+        {
+            get => _Title;
+            set => Set(ref _Title, value);
+        }
+
+        #endregion
 
         #region Путь к фото
 
@@ -42,7 +57,6 @@ namespace App1.ViewModels
         }
 
         #region Команды
-
 
         #region Команда для перехода на страницу с перечнем книг
 
