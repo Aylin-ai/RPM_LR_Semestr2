@@ -53,15 +53,7 @@ namespace App1.Models
 
         public int SaveUser(User user)
         {
-            if (user.Id != 0)
-            {
-                db.Update(user);
-                return user.Id;
-            }
-            else
-            {
-                return db.Insert(user);
-            }
+            return db.Insert(user);
         }
         public int SaveBook(Book book)
         {
