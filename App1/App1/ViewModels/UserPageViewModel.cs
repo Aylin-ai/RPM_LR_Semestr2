@@ -16,9 +16,9 @@ namespace App1.ViewModels
 
         #region Название страницы
 
-        private static User _Dict = (User)Application.Current.Properties["user №" + (Application.Current.Properties.Count - 1)];
+        private static User _user = App.DB.GetUser(App.DB.GetCount(0));
 
-        private string _Title = "Личный кабинет пользователя " + _Dict.Login;
+        private string _Title = "Личный кабинет пользователя " + _user.Login;
 
         public string Title
         {

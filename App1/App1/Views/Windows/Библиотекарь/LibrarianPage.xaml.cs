@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,11 +31,10 @@ namespace App1.Views.Windows.Библиотекарь
         }
         protected internal void DisplayStack()
         {
-            NavigationPage navPage = (NavigationPage)App.Current.MainPage;
-            label.Text = "";
-            foreach (Page p in navPage.Navigation.NavigationStack)
+            for (int i = 1; i <= App.db.GetCount(0); i++)
             {
-                label.Text += p.Title + "\n";
+                User dict = App.DB.GetUser(i);
+                label.Text += dict.Login + "\n";
             }
         }
     }

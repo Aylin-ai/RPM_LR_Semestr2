@@ -69,7 +69,7 @@ namespace App1.ViewModels
 
         #region Данные о выбранной роли
 
-        private int _Index = 0;
+        private int _Index = 1;
 
         public int Index
         {
@@ -90,10 +90,6 @@ namespace App1.ViewModels
         } 
 
         #endregion
-
-        public MainPageViewModel()
-        {
-        }
 
         #region Команды
 
@@ -138,82 +134,131 @@ namespace App1.ViewModels
 
         private void OnUserPageComandExecuted()
         {
-            if (Password1 == Password2)
+            if (App.DB.GetCount(0) != 0)
             {
-                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
-                (
-                    login:Login,
-                    password:Password1,
-                    dateOfBirth:DateOfBirth.ToString(),
-                    telephonenumber:TelephoneNumber,
-                    email:Email,
-                    role:Roles[Index]
-                );
+                for (int i = 1; i <= App.DB.GetCount(0); i++)
+                {
+                    if (Login == App.DB.GetUser(i).Login)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ошибка", "Логин занят", "Ок");
+                        Login = "";
+                        break;
+                    }
+                }
+            }
+            if (Login != "" && Password1 != "" && Password2 != "")
+            {
+                if (Password1 == Password2)
+                {
 
-                UserPage userPage = new UserPage();
-                Application.Current.MainPage.Navigation.PushAsync(userPage);
-                userPage.DisplayStack();
+                    User user = new User(Login, Password1, DateOfBirth.ToString(),
+                        TelephoneNumber, Email, Roles[Index]);
 
+                    App.DB.SaveUser(user);
+
+                    UserPage userPage = new UserPage();
+                    Application.Current.MainPage.Navigation.PushAsync(userPage);
+                    userPage.DisplayStack();
+
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                    Password1 = "";
+                    Password2 = "";
+                }
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
-                Password1 = "";
-                Password2 = "";
+                Application.Current.MainPage.DisplayAlert("Ошибка", "Не введены ключевые данные", "Ок");
+
             }
         }
 
         private void OnAdminPageExecuted()
         {
-            if (Password1 == Password2)
+            if (App.DB.GetCount(0) != 0)
             {
-                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
-                (
-                    login: Login,
-                    password: Password1,
-                    dateOfBirth: DateOfBirth.ToString(),
-                    telephonenumber: TelephoneNumber,
-                    email: Email,
-                    role: Roles[Index]
-                );
-
-                AdminPage adminPage = new AdminPage();
-                Application.Current.MainPage.Navigation.PushAsync(adminPage);
-                adminPage.DisplayStack();
-
+                for (int i = 1; i <= App.DB.GetCount(0); i++)
+                {
+                    if (Login == App.DB.GetUser(i).Login)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ошибка", "Логин занят", "Ок");
+                        Login = "";
+                        break;
+                    }
+                }
             }
-            else
-            {
-                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
-                Password1 = "";
-                Password2 = "";
-            }
+                if (Login != "" && Password1 != "" && Password2 != "")
+                {
+                    if (Password1 == Password2)
+                    {
+
+                        User user = new User(Login, Password1, DateOfBirth.ToString(),
+                            TelephoneNumber, Email, Roles[Index]);
+
+                        App.DB.SaveUser(user);
+
+                        AdminPage adminPage = new AdminPage();
+                        Application.Current.MainPage.Navigation.PushAsync(adminPage);
+                        adminPage.DisplayStack();
+
+                    }
+                    else
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                        Password1 = "";
+                        Password2 = "";
+                    }
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Ошибка", "Не введены ключевые данные", "Ок");
+
+                }
         }
 
         private void OnLibrarianPageExecuted()
         {
-            if (Password1 == Password2)
+            if (App.DB.GetCount(0) != 0)
             {
-                Application.Current.Properties["user №" + App.Current.Properties.Count.ToString()] = new User
-                (
-                    login: Login,
-                    password: Password1,
-                    dateOfBirth: DateOfBirth.ToString(),
-                    telephonenumber: TelephoneNumber,
-                    email: Email,
-                    role: Roles[Index]
-                );
+                for (int i = 1; i <= App.DB.GetCount(0); i++)
+                {
+                    if (Login == App.DB.GetUser(i).Login)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ошибка", "Логин занят", "Ок");
+                        Login = "";
+                        break;
+                    }
+                }
+            }
+                if (Login != "" && Password1 != "" && Password2 != "")
+                {
+                    if (Password1 == Password2)
+                    {
 
-                LibrarianPage librarianPage = new LibrarianPage();
-                Application.Current.MainPage.Navigation.PushAsync(librarianPage);
-                librarianPage.DisplayStack();
-            }
-            else
-            {
-                Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
-                Password1 = "";
-                Password2 = "";
-            }
+                        User user = new User(Login, Password1, DateOfBirth.ToString(),
+                            TelephoneNumber, Email, Roles[Index]);
+
+                        App.DB.SaveUser(user);
+
+                        LibrarianPage librarianPage = new LibrarianPage();
+                        Application.Current.MainPage.Navigation.PushAsync(librarianPage);
+                        librarianPage.DisplayStack();
+
+                    }
+                    else
+                    {
+                        Application.Current.MainPage.DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                        Password1 = "";
+                        Password2 = "";
+                    }
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Ошибка", "Не введены ключевые данные", "Ок");
+
+                }
         }
 
         #endregion

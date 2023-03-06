@@ -14,9 +14,9 @@ namespace App1.ViewModels.Администратор
     {
         #region Пользователи
 
-        private List<User> _Users;
+        private IEnumerable<User> _Users;
 
-        public List<User> Users
+        public IEnumerable<User> Users
         {
             get => _Users;
             set => Set(ref _Users, value);
@@ -44,23 +44,30 @@ namespace App1.ViewModels.Администратор
         {
             IsBusy = true;
 
-            try
+            Users = App.DB.GetUsers();
+        }
+
+        #endregion
+
+        #region Команда для удаления всех пользователей
+
+        private Command deleteAllUsersCommand;
+
+        public ICommand DeleteAllUsersCommand
+        {
+            get
             {
-                Users.Clear();
-                for (int i = 0; i < Application.Current.Properties.Count; i++)
+                if (deleteAllUsersCommand == null)
                 {
-                    User dict = (User)Application.Current.Properties["user №" + i];
-                    Users.Add(dict);
+                    deleteAllUsersCommand = new Command(OnDeleteAllUsersCommandExecuted);
                 }
+                return deleteAllUsersCommand;
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+        }
+
+        private void OnDeleteAllUsersCommandExecuted()
+        {
+            App.DB.DeleteUsers();
         }
 
         #endregion

@@ -15,15 +15,9 @@ namespace App1.Views.Windows
         }
         protected internal void DisplayStack()
         {
-            //NavigationPage navPage = (NavigationPage)App.Current.MainPage;
-            //label.Text = "";
-            //foreach (Page p in navPage.Navigation.NavigationStack)
-            //{
-            //    label.Text += p.Title + "\n";
-            //}
-            for (int i = 0; i < Application.Current.Properties.Count; i++)
+            for (int i = 1; i <= App.DB.GetCount(0); i++)
             {
-                User dict = (User)Application.Current.Properties["user №" + i];
+                User dict = App.DB.GetUser(i);
                 label.Text += dict.Login + "\n";
             }
         }

@@ -29,9 +29,9 @@ namespace App1.Views.Windows.Администратор
                 loaded = true;
             }
 
-            for (int i = 0; i < Application.Current.Properties.Count; i++)
+            for (int i = 1; i <= App.DB.GetCount(0); i++)
             {
-                User user = (User)Application.Current.Properties["user №" + i];
+                User user = App.DB.GetUser(i);
                 stack.Children.Add(new Button() { Text = user.Login, Margin = 10 });
             }
         }

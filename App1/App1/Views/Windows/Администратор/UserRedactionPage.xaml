@@ -10,6 +10,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout x:Name="stack">
+            <Button Text="Удалить всех пользователей" Command="{Binding DeleteAllUsersCommand}"/>
             <Label x:Name="label"/>
         </StackLayout>
     </ContentPage.Content>
