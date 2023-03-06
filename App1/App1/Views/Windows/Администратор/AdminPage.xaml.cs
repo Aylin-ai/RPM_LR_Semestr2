@@ -19,16 +19,6 @@ namespace App1.Views.Windows.Администратор
         {
             InitializeComponent();
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            if (loaded == false)
-            {
-                DisplayStack();
-                loaded = true;
-            }
-        }
         protected internal void DisplayStack()
         {
             for (int i = 1; i <= App.db.GetCount(0); i++)

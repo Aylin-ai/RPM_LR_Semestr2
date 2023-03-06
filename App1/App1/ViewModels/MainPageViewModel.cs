@@ -69,7 +69,7 @@ namespace App1.ViewModels
 
         #region Данные о выбранной роли
 
-        private int _Index = 1;
+        private int _Index = 2;
 
         public int Index
         {

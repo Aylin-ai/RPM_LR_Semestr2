@@ -9,6 +9,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Добавить книгу" Command="{Binding}"/>
             <Label x:Name="label"/>
         </StackLayout>
     </ContentPage.Content>
